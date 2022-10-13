@@ -77,7 +77,7 @@ int main()
 					cout << "_______________________________________\n";
 					cout << "Du drepte " << Statistikk << " edderkopper \n";
 					string answer;
-					cout << "ønsker du å starte reisen din på nytt? \n";
+					cout << "Ã¸nsker du Ã¥ starte reisen din pÃ¥ nytt? \n";
 					cout << "\n";
 					cout << "Skriv ja eller nei\n";
 					cin >> answer;
