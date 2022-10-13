@@ -1,0 +1,110 @@
+#include <cstdlib>
+#include <iostream>
+using namespace std;
+
+
+
+
+
+bool isLiving = true;
+bool isRunning = true;
+int PlayerHP = 100;
+int Enemyhp = 20;
+int ResultPlayer; 
+int ResultEnemy;
+int Statistikk;
+int DamagePlayer;
+int DamageEnemy;
+int Death = 1;
+int Highscore;
+
+int main()
+{
+	while (isRunning)
+	{
+		while (isLiving)
+		{
+			cout << "Du har " << PlayerHP << " liv igjen\n";
+			string svar;
+			cout << "Vil du vandre videre?\n";
+			cout << "Skriv ja eller nei\n";
+
+			cin >> svar;
+			cout << "Du valgte " << svar;
+			cout << "\n";
+			cout << "\n";
+			cout << "\n";
+
+			if (svar == "ja")
+			{
+				srand(time(NULL));
+				DamagePlayer = abs(1 + rand() % 20);
+				DamageEnemy = abs(1 + rand() % 50);
+
+				PlayerHP -= DamageEnemy;
+				Enemyhp -= DamagePlayer;
+
+
+
+				if (Enemyhp > 1)
+				{
+					cout << "____________________________________\n";
+					cout << "Du har igjen " << PlayerHP << "\n";
+					cout << "Edderkoppen har igjen " << Enemyhp << "\n";
+					cout << "____________________________________\n";
+					cout << "\n";
+					cout << "\n";
+					cout << "Du har drept " << Statistikk << " edderkopper \n";
+					cout << "\n";
+					cout << "\n";
+					
+				
+
+				}
+				if (Enemyhp < 1 && PlayerHP > 1)
+				{
+					cout << "Du har seiret! ";
+					cout << "\n";
+					cout << "\n";
+					cout << "\n";
+					cout << "\n";
+					Statistikk++;
+					cout << "Du har drept " << Statistikk << "	edderkopper \n";
+				}
+				if (PlayerHP < 1)
+				{
+					cout << "Du ble overrumplet av edderkoppen :(\n";
+					cout << "_______________________________________\n";
+					cout << "Du drepte " << Statistikk << " edderkopper \n";
+					string answer;
+					cout << "ønsker du å starte reisen din på nytt? \n";
+					cout << "\n";
+					cout << "Skriv ja eller nei\n";
+					cin >> answer;
+					cout << "Du skrev "<<answer;
+
+					if (answer == "ja")
+					{
+						PlayerHP = 100;
+					}
+
+					if (answer == "nei")
+					{
+					isRunning = false;
+					break;
+					}
+				}
+			}
+
+			if (svar == "nei")
+			{
+				cout << "Du har drept " << Statistikk << " edderkopper \n";
+				isRunning = false;
+				break;
+			}
+
+		}
+	}
+
+	
+}
